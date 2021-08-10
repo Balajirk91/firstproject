@@ -1,0 +1,24 @@
+<div class="users">
+    <section *ngFor="let user of users$ | async; let i = index">
+        <mat-card>
+            <mat-form-field *ngIf="i === selectedid; else ear" class="example-full-width" appearance="fill">
+                <mat-label>Name</mat-label><br>
+                <input matInput [(ngModel)]="name"><br>
+            </mat-form-field><br>
+                <mat-form-field *ngIf="i === selectedid" class="example-full-width" appearance="fill">
+                <mat-label>Department</mat-label><br>
+                <input matInput [(ngModel)]="dept"><br>
+                </mat-form-field>
+            <ng-template #ear>
+                <h1>Id:{{user.id}}</h1>
+                <h1>Name: {{user.name}} </h1>
+                <h2>Department: {{ user.dept }} </h2>
+            </ng-template><br><br>
+                <button mat-button *ngIf="i === selectedid" mat-raised-button color="primary" (click)="update(user)">Update</button>
+                <button mat-raised-button color="warn" (click)="deleteuser(user.id)">Delete</button>
+                <button mat-raised-button color="accent"
+                   *ngIf="editbuttonshow" (click)="edituser(user,i)">Edit</button>
+                    <button mat-button *ngIf="i === selectedid" mat-raised-button color="warn" (click)="canceledit()">cancel</button>
+        </mat-card>
+    </section>
+</div>

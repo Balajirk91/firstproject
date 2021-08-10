@@ -1,0 +1,23 @@
+<div style="padding: 20px;">
+    <div style="padding: 20px;">
+        <h1>User details</h1>
+        <form [formGroup]="userform" class="example-form">
+            <mat-form-field class="example-full-width">
+                <mat-label>User Name</mat-label>
+                <input name='name' formControlName="name" matInput>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>User Department</mat-label>
+                <input name='dept' formControlName="dept" matInput>
+            </mat-form-field>
+
+            <button mat-raised-button color="primary" (click)="addnewuser()">submit</button>
+        </form>
+    </div>
+</div>
+
+<mat-divider></mat-divider>
+<div style="padding: 20px;">
+    <app-userdetails></app-userdetails>
+</div>
